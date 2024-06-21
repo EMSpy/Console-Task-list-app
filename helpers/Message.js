@@ -1,4 +1,5 @@
-import 'colors';
+import 'colors';4
+import readline from 'readline';
 
 const ShowMenu = () => {
 
@@ -18,13 +19,13 @@ const ShowMenu = () => {
         console.log(`${'6.'.blue} Errase tasks`)
         console.log(`${'0.'.blue} Exit \n`)
 
-        const readline = require('readline').createInterface({
+        const readlines = readline.createInterface({
             input: process.stdin,
             output: process.stdout
         })
 
-        readline.question('Select an option: ', (opt) => {
-            readline.close()
+        readlines.question('Select an option: ', (opt) => {
+            readlines.close()
             resolve(opt)
         
     })
@@ -35,16 +36,16 @@ const ShowMenu = () => {
 }
 
 
-const pause = () => {
+export const pause = () => {
 
    return new Promise ( resolve => { 
-    const readline = require('readline').createInterface({
+    const readlines = readline.createInterface({
       input: process.stdin,
       output: process.stdout
     })
 
-    readline.question(`\nPress ${'ENTER'.blue}  to continue\n`, (opt) => {
-      readline.close()
+    readlines.question(`\nPress ${'ENTER'.blue}  to continue\n`, (opt) => {
+      readlines.close()
       resolve()
     })
   })
@@ -52,7 +53,3 @@ const pause = () => {
 }
 
 
-module.exports = {
-    ShowMenu,
-    pause
-}
