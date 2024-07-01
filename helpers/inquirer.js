@@ -11,31 +11,31 @@ const questions = [
         choices: [
             {
                 value: '1',
-                name: '1.Create a new task'
+                name: `${'1.'.red}Create a new task`
             }, 
             {
                 value: '2',
-                name: '2.List tasks'
+                name: `${'2.'.red}List tasks`
             }, 
             {
                 value: '3',
-                name: '3.List completed tasks'
+                name: `${'3.'.red}List completed tasks`
             }, 
             {
                 value: '4',
-                name: '4.List pending tasks'
+                name: `${'4.'.red}List pending tasks`
             }, 
             {
                 value: '5',
-                name: '5.Complete tasks'
+                name: `${'5.'.red}Complete tasks`
             }, 
             {
                 value: '6',
-                name: '6.Errase tasks'
+                name: `${'6.'.red}Errase tasks`
             }, 
             {
                 value: '0',
-                name: '0.Exit'
+                name: `${'6.'.red}Exit`
             }
         ]
 
@@ -48,7 +48,7 @@ export const inquirerMenu = async() => {
 
     console.clear()
     console.log("====================".blue)
-    console.log("   Select a Option   ".blue)   
+    console.log("   Select a Option   ".white)   
     console.log("====================\n".blue)
 
    const { opcion } = await inquirer.prompt(questions);
@@ -72,7 +72,7 @@ export const pause = async () => {
     await inquirer.prompt(questions);
   }
 
-const readInput = async ( message) => {
+export const readInput = async ( message) => {
 
     const questions = [
         {
@@ -80,7 +80,7 @@ const readInput = async ( message) => {
             name: 'desc',
             message,
             validate(value) {
-                if (this.validate.length === 0) {
+                if (value.length === 0) {
                     return 'Please enter a value';
                 }
                 return true;
@@ -89,6 +89,9 @@ const readInput = async ( message) => {
     
         }
     ];
+
+    const { desc } = await inquirer.prompt(questions);
+    return desc;
 
 }
 
