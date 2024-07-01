@@ -2,7 +2,7 @@
 import 'colors';
 
 import { inquirerMenu , pause } from './helpers/inquirer.js';
-import { Tasks } from './model/tasks.js';
+import { Tasks }  from './model/tasks.js';
 
 
 
