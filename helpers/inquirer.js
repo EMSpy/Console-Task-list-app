@@ -72,6 +72,24 @@ export const pause = async () => {
     await inquirer.prompt(questions);
   }
 
+const readInput = async ( message) => {
 
+    const questions = [
+        {
+            type: 'input',
+            name: 'desc',
+            message,
+            validate(value) {
+                if (this.validate.length === 0) {
+                    return 'Please enter a value';
+                }
+                return true;
+
+            }
+    
+        }
+    ];
+
+}
 
 
